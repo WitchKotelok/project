@@ -27,12 +27,12 @@ class HomeScreen extends StatelessWidget {
               Container(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Calendar(products: products),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => Calendar(products: products),
+                    //   ),
+                    // );
                   },
                   child: Text("Вход"),
                 ),
