@@ -12,14 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Product> _products = [
-    Product(
-        name: 'Яблоки', expirationDate: DateTime.now().add(Duration(days: 5))),
-    Product(
-        name: 'Молоко', expirationDate: DateTime.now().add(Duration(days: 3))),
-    Product(
-        name: 'Хлеб', expirationDate: DateTime.now().add(Duration(days: 7))),
-  ];
+  List<Product> _products = [];
 
   void _addProduct(Product product) {
     setState(() {
