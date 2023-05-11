@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+import 'home_screen.dart';
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +29,12 @@ class HomeScreen extends StatelessWidget {
               Container(
                 child: TextButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => Calendar(products: products),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ),
+                    );
                   },
                   child: Text("Вход"),
                 ),
@@ -43,10 +45,6 @@ class HomeScreen extends StatelessWidget {
                   child: Text("Настройки"),
                 ),
               ),
-              Container(),
-              Container(),
-              Container(),
-              Container(),
             ],
           ),
         ),
