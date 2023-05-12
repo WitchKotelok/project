@@ -1,4 +1,6 @@
+import 'package:calendar_app/viewmodels/product_item.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import 'package:intl/intl.dart';
@@ -13,6 +15,8 @@ class Calendar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myProducts = Provider.of<ProductItem>(context);
+
     Map<DateTime, List<Product>> _groupedProducts = {};
 
     products.forEach((product) {

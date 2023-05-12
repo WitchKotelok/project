@@ -1,4 +1,6 @@
+import 'package:calendar_app/viewmodels/product_item.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/product.dart';
 
@@ -28,6 +30,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final myProducts = Provider.of<ProductItem>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Добавить продукт'),
@@ -76,13 +79,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pop(
-                      context,
-                      Product(
-                        name: _productNameController.text,
-                        expirationDate: _expirationDate,
-                      ),
+                    final newProduct = Product(
+                      name: _productNameController.text,
+                      expirationDate: _expirationDate,
                     );
+                    ProductItem().saveProduct(newProduct);
+                    Navigator.pop(context);
                   }
                 },
                 child: Text('Добавить'),

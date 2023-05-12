@@ -1,5 +1,7 @@
+import 'package:calendar_app/viewmodels/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../models/product.dart';
 
@@ -10,6 +12,7 @@ class ProductListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myProducts = Provider.of<ProductItem>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Список продуктов'),

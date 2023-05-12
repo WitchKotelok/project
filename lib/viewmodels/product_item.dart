@@ -47,7 +47,9 @@ class ProductItem with ChangeNotifier {
     final expirationDateString = object.getString('dataTime');
     if (name != null && expirationDateString != null) {
       _product = Product(
-          name: name, expirationDate: DateTime.parse(expirationDateString));
+        name: name,
+        expirationDate: DateTime.parse(expirationDateString),
+      );
       notifyListeners();
     }
   }
