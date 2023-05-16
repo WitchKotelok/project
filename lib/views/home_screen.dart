@@ -3,29 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/product.dart';
-import '../viewmodels/product_item.dart';
+import '../provider/product_provider.dart';
 import '../viewmodels/calendar.dart';
 import 'add_product_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
   List<Product> _products = [];
-
-  void _addProduct(Product product) {
-    setState(() {
-      _products.add(product);
-    });
-  }
-
-  void _deleteProduct(int index) {
-    setState(() {
-      _products.removeAt(index);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +20,23 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: <Widget>[
           Calendar(products: _products),
+          // ignore: prefer_const_constructors
           Expanded(
-            child: ListView.builder(
-              itemCount: _products.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Dismissible(
-                  key: Key(_products[index].name),
-                  onDismissed: (direction) {
-                    _deleteProduct(index);
-                  },
-                  child: ProductListScreen(products: []),
-                );
-              },
-            ),
+            child: Text(""),
+            // ListView.builder(
+            //   itemCount: _products.length,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     return Dismissible(
+            //       key: Key(_products[index].name),
+            //       onDismissed: (direction) {
+            //         //! добавить удаление продукта
+            //       },
+            //       child: Row(
+            //         children: [Text(ProductItem().loadProduct().toString())],
+            //       ),
+            //     );
+            //   },
+            // ),
           ),
         ],
       ),
@@ -60,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialPageRoute(builder: (context) => AddProductScreen()),
           ).then((value) {
             if (value != null) {
-              _addProduct(value);
+              //! Добавить сохранение продукта
             }
           });
         },

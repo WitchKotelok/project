@@ -1,4 +1,4 @@
-import 'package:calendar_app/viewmodels/product_item.dart';
+import 'package:calendar_app/provider/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
